@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <version>1.3</version>
+    <authors>Camelonta AB</authors>
+    <owners>Camelonta AB</owners>
+    <id>CamelontaUmbracoActivityLog</id>
+    <title>Camelonta Umbraco ActivityLog</title>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Aktivitetslogg för Umbraco</description>
+    <copyright>Copyright Camelonta AB 2015</copyright>
+    <dependencies>
+      <dependency id="UmbracoCms" version="7.2.2" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin\Camelonta.ActivityLog.dll" target="lib" />
+    <file src="bin\sv\Camelonta.ActivityLog.resources.dll" target="lib\sv" />
+    <file src="Content\*.*" target="content\App_Plugins\Camelonta.ActivityLog" />
+    <file src="Dashboard.config.install.xdt" target="content\Config" />
+    <file src="Dashboard.config.uninstall.xdt" target="content\Config" />
+  </files>
+</package>

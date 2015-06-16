@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dashBoard xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+  <section alias="StartupDashboardSection" xdt:Locator="Match(alias)">
+    <tab caption="Camelonta" xdt:Locator="Match(caption)">
+      <control panelCaption="ActivityLog" xdt:Transform="Remove" xdt:Locator="Match(panelCaption)" />
+    </tab>
+  </section>
+</dashBoard>
