@@ -7,7 +7,7 @@
     <id>CamelontaUmbracoActivityLog</id>
     <title>Camelonta Umbraco ActivityLog</title>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Aktivitetslogg för Umbraco</description>
+    <description>Activity log for Umbraco</description>
     <copyright>Copyright Camelonta AB 2015</copyright>
     <dependencies>
       <dependency id="UmbracoCms" version="7.2.2" />

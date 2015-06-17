@@ -5,6 +5,14 @@ ehthumbs.db
 # Folder config file
 Desktop.ini
 
+# Nuget package-folder
+packages
+bin
+obj
+.user 
+*.suo
+*.user
+
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
 

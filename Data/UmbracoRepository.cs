@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using umbraco.BusinessLogic;
 using umbraco.DataLayer;
 using Umbraco.Core;
@@ -11,28 +10,12 @@ namespace Camelonta.ActivityLog.Data
 {
     public class UmbracoRepository
     {
+        // For the log we retrieve these types
         private readonly static LogTypes[] LogTypeList = { LogTypes.Publish, LogTypes.Save, LogTypes.Delete, LogTypes.UnPublish, LogTypes.Move, LogTypes.Copy, LogTypes.RollBack };
+
         private readonly static string LogTypesAsString = "'" + string.Join("','", LogTypeList) + "'";
-        // private readonly string _logTypes = "'Publish', 'Save','Delete','Unpublish','Move','Copy','RollBack'";
         private readonly DateTime _getLogSince = DateTime.Now.AddDays(-183);
 
-
-        //public IEnumerable<LogItem> GetLatestLogItems(int take, int skip)
-        //{
-        //    var logItems = new List<LogItem>();
-
-        //    foreach (var logtype in _logTypes)
-        //    {
-        //        logItems.AddRange(Log.Instance.GetLogItems(logtype, _getLogSince));
-        //    }
-
-        //    // "Delete media" is when the item is deleted from recycle bin.
-        //    return logItems.OrderByDescending(x => x.Timestamp).Where(x => x.NodeId != -1 &&
-        //        !x.Comment.StartsWith("Move Content") &&
-        //        !x.Comment.StartsWith("Delete Media") &&
-        //        !x.Comment.StartsWith("Version rolled back"))
-        //        .Skip(skip).Take(take);
-        //}
 
         private static ISqlHelper SqlHelper
         {
@@ -55,15 +38,10 @@ namespace Camelonta.ActivityLog.Data
                           SqlHelper.CreateParameter("@take", take)));
         }
 
-
-
-
+        // Total count of log items for the pagination
         public int CountLogItems()
         {
             return ApplicationContext.Current.DatabaseContext.Database.ExecuteScalar<int>("SELECT COUNT(*) FROM umbracoLog WHERE logHeader IN (" + LogTypesAsString + ")");
-            //return SqlHelper.ExecuteReader(
-            //    "SELECT COUNT(*) FROM umbracoLog WHERE logHeader IN (" + LogTypesAsString + ")");
-            //return 500;
         }
 
         public IEnumerable<IContent> GetRecycleBinNodes()

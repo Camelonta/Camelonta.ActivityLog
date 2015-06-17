@@ -81,6 +81,7 @@ namespace Camelonta.ActivityLog.Controllers
                     vm.LogItemType = "MovePageToRecycleBin";
                 }
 
+                // Set the final name for display (node id) if its still empty
                 if (string.IsNullOrEmpty(vm.DisplayName))
                     vm.DisplayName = string.Format("[{0}]", logItem.NodeId);
 
@@ -90,6 +91,10 @@ namespace Camelonta.ActivityLog.Controllers
             return activities;
         }
 
+        /// <summary>
+        /// Get resources and misc info. 
+        /// </summary>
+        /// <returns></returns>
         public Dictionary<string, object> GetTotalActivitiesAndResources()
         {
             var userService = ApplicationContext.Services.UserService;

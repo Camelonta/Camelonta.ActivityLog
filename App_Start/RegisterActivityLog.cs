@@ -4,6 +4,11 @@ namespace Camelonta.ActivityLog
 {
     public class RegisterActivityLog : ApplicationEventHandler
     {
+        /// <summary>
+        /// If we ever need to log something manually, this is the way to attacht to events
+        /// </summary>
+        /// <param name="umbracoApplication"></param>
+        /// <param name="applicationContext"></param>
         protected override void ApplicationInitialized(UmbracoApplicationBase umbracoApplication, ApplicationContext applicationContext)
         {
             //ContentService.Something += ContentService_Something;
@@ -12,8 +17,6 @@ namespace Camelonta.ActivityLog
         }
         //void AddToLog(ActionEnum action, int sourceId, string sourceName, int targetId = -1)
         //{
-        //    try
-        //    {
         //        var userId = -1;
         //        if (HttpContext.Current.User.Identity.IsAuthenticated)
         //        {
@@ -22,23 +25,6 @@ namespace Camelonta.ActivityLog
         //            if (user != null)
         //                userId = user.Id;
         //        }
-
-        //        var db = ApplicationContext.Current.DatabaseContext.Database;
-        //        db.Insert(new ActivityLogItem()
-        //        {
-        //            Date = DateTime.Now,
-        //            Action = action.ToString(),
-        //            SourceId = sourceId,
-        //            SourceName = sourceName,
-        //            TargetId = targetId,
-        //            UserId = userId
-        //        });
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        LogHelper.Error(this.GetType(), "Error logging to ActivityLogItems table", ex);
-        //    }
-        //    //LogHelper.Info(this.GetType(), page.Name + " saved by " + UmbracoContext.Current.Security.CurrentUser.Name);
         //}
     }
 }
