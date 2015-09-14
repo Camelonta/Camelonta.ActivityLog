@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
-    <version>1.3</version>
+    <version>1.3.8</version>
     <authors>Camelonta AB</authors>
     <owners>Camelonta AB</owners>
     <id>CamelontaUmbracoActivityLog</id>
@@ -14,10 +14,10 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="bin\Camelonta.ActivityLog.dll" target="lib" />
-    <file src="bin\sv\Camelonta.ActivityLog.resources.dll" target="lib\sv" />
-    <file src="Content\*.*" target="content\App_Plugins\Camelonta.ActivityLog" />
-    <file src="Dashboard.config.install.xdt" target="content\Config" />
-    <file src="Dashboard.config.uninstall.xdt" target="content\Config" />
+    <file src="Camelonta.ActivityLog\bin\Camelonta.ActivityLog.dll" target="lib" />
+    <file src="Camelonta.ActivityLog\bin\sv\Camelonta.ActivityLog.resources.dll" target="lib\sv" />
+    <file src="Camelonta.ActivityLog\App_Plugins\Camelonta.ActivityLog\*.*" target="content\App_Plugins\Camelonta.ActivityLog" />
+    <file src="Camelonta.ActivityLog\Dashboard.config.install.xdt" target="content\Config" />
+    <file src="Camelonta.ActivityLog\Dashboard.config.uninstall.xdt" target="content\Config" />
   </files>
 </package>

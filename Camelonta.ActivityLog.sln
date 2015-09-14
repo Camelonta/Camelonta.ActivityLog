@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Camelonta.ActivityLog", "Camelonta.ActivityLog.csproj", "{58980320-FC1A-4145-8501-3D3D67AEE2A1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Camelonta.ActivityLog", "Camelonta.ActivityLog\Camelonta.ActivityLog.csproj", "{58980320-FC1A-4145-8501-3D3D67AEE2A1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Camelonta.ActivityLog.Tests", "Camelonta.ActivityLog.Tests\Camelonta.ActivityLog.Tests.csproj", "{B33F4CA7-68BF-49F0-A0D8-CD9AAC385B3F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{58980320-FC1A-4145-8501-3D3D67AEE2A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{58980320-FC1A-4145-8501-3D3D67AEE2A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{58980320-FC1A-4145-8501-3D3D67AEE2A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B33F4CA7-68BF-49F0-A0D8-CD9AAC385B3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B33F4CA7-68BF-49F0-A0D8-CD9AAC385B3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B33F4CA7-68BF-49F0-A0D8-CD9AAC385B3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B33F4CA7-68BF-49F0-A0D8-CD9AAC385B3F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

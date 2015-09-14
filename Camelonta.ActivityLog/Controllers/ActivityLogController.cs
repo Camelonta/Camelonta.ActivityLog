@@ -8,6 +8,7 @@ using Camelonta.ActivityLog.Data;
 using Camelonta.ActivityLog.Models;
 using Camelonta.ActivityLog.Resources;
 using umbraco.BusinessLogic;
+using Umbraco.Core.Logging;
 using Umbraco.Core.Models;
 using Umbraco.Core.Models.Membership;
 using Umbraco.Web.Editors;
@@ -21,10 +22,21 @@ namespace Camelonta.ActivityLog.Controllers
     {
         public IEnumerable<ActivityViewModel> GetLog(int take = 10, int skip = 0)
         {
+            string currentUserLanguage = string.Empty;
+            var currentUser = Services.UserService.GetByUsername(User.Identity.Name);
+            if (currentUser == null)
+            {
+                LogHelper.Warn(GetType(), string.Format("No user found by User.Identity.Name '{0}'", User.Identity.Name));
+            }
+            else
+            {
+                currentUserLanguage = currentUser.Language;
+            }
+
             var repo = new UmbracoRepository();
             var logItems = repo.GetLatestLogItems(take, skip);
             var nodesInRecyleBin = repo.GetRecycleBinNodes().Select(x => x.Id).ToArray();
-
+            
             var activities = new List<ActivityViewModel>();
             foreach (var logItem in logItems)
             {
@@ -39,7 +51,7 @@ namespace Camelonta.ActivityLog.Controllers
                     Message = logItem.Comment,
                     LogItemType = logItem.LogType.ToString(),
                     Timestamp = logItem.Timestamp,
-                    SectionHeader = GetHeader(logItem.Timestamp, UserHelper.GetCultureInfo(user.Language))// This is the date-header ("today", "2015-06-16" etc.)
+                    SectionHeader = GetHeader(logItem.Timestamp, UserHelper.GetCultureInfo(currentUserLanguage))// This is the date-header ("today", "2015-06-16" etc.)
                 };
 
                 if (contentNode != null)
@@ -76,7 +88,7 @@ namespace Camelonta.ActivityLog.Controllers
                     vm.CustomAction = customAction.ToString();
                 }
 
-                if (logItem.LogType == LogTypes.UnPublish && nodesInRecyleBin.Contains(logItem.NodeId))
+                if (logItem.Comment.StartsWith("Move Content to Recycle") && nodesInRecyleBin.Contains(logItem.NodeId))
                 {
                     vm.LogItemType = "MovePageToRecycleBin";
                 }
