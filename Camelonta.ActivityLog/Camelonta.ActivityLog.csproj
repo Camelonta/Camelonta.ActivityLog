@@ -328,11 +328,8 @@
     </VisualStudio>
   </ProjectExtensions>
   <PropertyGroup>
-    <PostBuildEvent>SET BOILERPLATE="C:\work\SVN\Umbraco\Boilerplate\"
-SET PLUGINDIR="%25BOILERPLATE%25App_Plugins\Camelonta.ActivityLog"
-MKDIR %25PLUGINDIR%25
-xcopy $(TargetPath) "%25BOILERPLATE%25bin" /Y /D
-xcopy "$(ProjectDir)App_Plugins\Camelonta.ActivityLog\*.*" %25PLUGINDIR%25 /Y /D</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
     <PreBuildEvent>
