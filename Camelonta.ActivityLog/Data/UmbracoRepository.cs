@@ -57,7 +57,7 @@ namespace Camelonta.ActivityLog.Data
 
         private string GetInnerWhere()
         {
-            return string.Format("WHERE {0} AND DateStamp >= @dateStamp", GetLogCommentSqlQuery());
+            return string.Format("WHERE {0} AND DateStamp >= @dateStamp AND NodeId != -1", GetLogCommentSqlQuery());
         }
 
         private string GetWhere()
@@ -84,6 +84,8 @@ namespace Camelonta.ActivityLog.Data
         {
             string sql = "logHeader IN (" + LogTypesAsString + ") AND (";
             sql += "logComment LIKE 'Save and Publish %' OR ";
+
+            sql += string.Format("logComment LIKE 'UmbracoForm%' OR ");
 
             var logTypes = Enum.GetNames(typeof (LogTypes));
             foreach (var logType in logTypes)
