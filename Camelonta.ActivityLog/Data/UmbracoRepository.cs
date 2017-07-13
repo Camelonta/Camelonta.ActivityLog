@@ -85,6 +85,8 @@ namespace Camelonta.ActivityLog.Data
             string sql = "logHeader IN (" + LogTypesAsString + ") AND (";
             sql += "logComment LIKE 'Save and Publish %' OR ";
 
+            sql += "logComment LIKE 'UnPublish %' OR ";
+
             sql += string.Format("logComment LIKE 'UmbracoForm%' OR ");
 
             var logTypes = Enum.GetNames(typeof (LogTypes));
