@@ -36,6 +36,8 @@
 .cam-activitylog .profile-image {
     width: 15px;
     border-radius: 50%;
+    position: relative;
+    top: -2px;
 }
 
 .cam-logItem strong,
